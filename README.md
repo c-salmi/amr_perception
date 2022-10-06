@@ -1,9 +1,9 @@
 # Real-time 360° 3D detection and tracking for Mobile Robot
 
-##Welcome to the easy inference repository! 
+## Welcome to the easy inference repository! 
 
 Real-time multi-modal multi-pedestrian detection and tracking framework.
-###Overview
+### Overview
 The main goal of this repository is to provide a clean, simple and short way of setting up inference pipelines for 2D (and 3D) visual detection and tracking. 
 Our proposed framework is depicted in fig.1 using  five RGB-D cameras.
 
@@ -20,7 +20,7 @@ Since this framework relies on tracking 3D bounding, and RGB images
 do not contain depth information, so we use the Depth image to translate these 2D bounding boxes to 3D.
 Obtaining accurate depth information is essential in order to translate 2D object detections into 3D. We utilize a standard feature of the RGB-D cameras that aligns the depth images with their corresponding RGB images. This alignment allows us to directly extract the region of interest (RoI) in the depth image by examining the bounding boxes provided by the 2D object detector
 
-###Mount Hardware : 
+### Mount Hardware : 
 5X intel realsense d455 
 1X lidar velodyne VLP-16
 1 X  3.1 USB Hub 5 ports 
