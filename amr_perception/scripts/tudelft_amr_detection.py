@@ -6,16 +6,18 @@ from easy_inference.utils.filters import filter_iou3d
 import onnxruntime as ort
 import numpy as np
 import cv2
+import os
 
 SHOW = True
 ROS = True
 
 if ROS:
     from easy_inference.utils.ros_connector import RosConnector
-    ros_connector = RosConnector()
+    ros_connector = RosConnector(fixed_frame="map")
 
 # ort.set_default_logger_severity(0)
-ort_sess = ort.InferenceSession('yolov7-tiny.onnx', providers=['CUDAExecutionProvider'])
+models_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/models'
+ort_sess = ort.InferenceSession(f'{models_dir}/yolov7-tiny.onnx', providers=['CUDAExecutionProvider'])
 
 cam5 = Realsense(width=640, height=480, depth=True, device='215122255929')
 cam4 = Realsense(width=640, height=480, depth=True, device='215122255934')

@@ -20,8 +20,10 @@ setup(name='arm_perception',
         "License :: OSI Approved :: MIT License"
       ],
       install_requires=[
-          'easy_inference==0.0.3',
-          'onnxruntime-gpu'
+          'easy_inference==0.0.4',
+          'onnxruntime-gpu',
+          'pyyaml',
+          'rospkg'
       ],
       python_requires='>=3.8',
       extras_require={},

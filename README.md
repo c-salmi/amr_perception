@@ -34,6 +34,27 @@ In this version the sensor calibration was made manually.
 ## Ready to Hack!
 
 ### Installation
+
+**ROS dependencies**
+
+The detection pipeline interfaces with ROS and uses some non-default msg types to do this. Primarily the `jsk_recognition_msgs` and `spencer_tracking_msgs` are used for detection and tracking respectively.
+The `jsk_recognition_msgs` can be installed using:
+```
+sudo apt install ros-${ROS_DISTRO}-jsk-recognition-msgs
+```
+> NOTE: make sure you have sourced ROS, otherwise `${ROS_DISTRO}` will be empty.
+Unfortunately `spencer_tracking_msgs` is not available to install through aptitude (ubuntu's package manager).
+
+The current work around is to build these msgs from their source directories:
+```
+cd <your catkin workspace>
+git clone git@github.com:spencer-project/spencer_messages.git
+git clone git@github.com:srl-freiburg/spencer_tracking_rviz_plugin.git
+catkin build
+```
+
+**Python dependencies**
+
 Simply install this repository with pip (or your preferred python package manager).
 ```bash
 pip install -e .
@@ -41,12 +62,13 @@ pip install -e .
 
 ### Quick Start
 
-Make sure you have all 5 realsense cameras connected and their id's are set correctly in `scripts/tudelft_amr.py`. Additionally make sure you have sourced your ROS environment with access to `jsk_recognition_msgs`, and depending on which onnxruntime `execution_provider` you have chosen, make sure the corresponding drivers are install (cuda, tensorrt, openvino, etc.). 
+Make sure you have all 5 realsense cameras connected and their id's are set correctly in `scripts/tudelft_amr_detection.py`. Additionally make sure you have sourced your ROS environment, and depending on which onnxruntime `execution_provider` you have chosen, make sure the corresponding drivers are installed (cuda, tensorrt, openvino, etc.). 
 
 Finally simply execute the script.
 ```bash
 cd amr_perception/scripts
-python tudelft_amr.py
+python tudelft_amr_detection.py
+python tudelft_amr_tracking.py
 ```
 
 ## Video 
