@@ -43,6 +43,7 @@ The `jsk_recognition_msgs` can be installed using:
 sudo apt install ros-${ROS_DISTRO}-jsk-recognition-msgs
 ```
 > NOTE: make sure you have sourced ROS, otherwise `${ROS_DISTRO}` will be empty.
+
 Unfortunately `spencer_tracking_msgs` is not available to install through aptitude (ubuntu's package manager).
 
 The current work around is to build these msgs from their source directories:
